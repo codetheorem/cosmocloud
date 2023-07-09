@@ -18,10 +18,10 @@ class Order(BaseModel):
     total_amount: float = None
     user_address: UserAddress
 
-def toJson(order):
+def order_serializer(order):
     return { 
             "id": str(order.get('_id')),
             "items": list(order.get('items')),
-            "total_amount": float(order.get("float")),
+            "total_amount": float(order.get("total_amount")),
             "user_address": dict(order.get('user_address'))
     }
